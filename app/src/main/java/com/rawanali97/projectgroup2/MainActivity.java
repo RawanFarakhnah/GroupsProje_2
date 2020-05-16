@@ -17,25 +17,44 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Hotel> hotelList = new ArrayList<Hotel>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        loadData();
+        if(hotelList.toString() == "[]"){
+            addDefaultData();
+            saveData();
+        }
+
+
+
 
         //test comment
         RecyclerView recycler = (RecyclerView)findViewById(R.id.hottel_recycler);
         String[] captions = new String[Hotel.hotel.length];
         int[] ids = new int[Hotel.hotel.length];
 
+        /*
         for(int i = 0; i<captions.length;i++){
             captions[i] = Hotel.hotel[i].getName();
             ids[i] = Hotel.hotel[i].getImg_id();
         }
+         */
+
+        for(int i = 0; i < hotelList.size(); i++){
+            captions[i] = hotelList.get(i).getName();
+            ids[i] = hotelList.get(i).getImg_id();
+        }
+
+
+
+
         recycler.setLayoutManager(new LinearLayoutManager(this));
         CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(captions, ids);
         recycler.setAdapter(adapter);
-       //       addDefaultData();
-      //        saveData();
     }
 
     public void addDefaultData(){
@@ -51,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveData(){
         loadData();
-        //hotelList.add( new Hotel("Hilton Pyramids Golf",R.drawable.hilton_pyramids_golf));
-        hotelList.add(new Hotel( "helloer",1));
         SharedPreferences s = getSharedPreferences("HOTELS", MODE_PRIVATE);
         SharedPreferences.Editor editor = s.edit();
         Gson gson = new Gson();
@@ -71,13 +88,12 @@ public class MainActivity extends AppCompatActivity {
         }.getType();
         if (gson.fromJson(json, type) != null) {
             ArrayList<Hotel> load = gson.fromJson(json, type);
-            if (load != null && load.isEmpty() != true) {
-                hotelList = load;
-
-                print(load.toString());
-
-            }
+            hotelList = load;
         }
+
+
+
+
 
     }
 

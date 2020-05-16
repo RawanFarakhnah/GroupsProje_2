@@ -39,4 +39,12 @@ public class Hotel {
     public void setImg_id(int img_id) {
         Img_id = img_id;
     }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "name='" + name + '\'' +
+                ", Img_id=" + Img_id +
+                '}';
+    }
 }
