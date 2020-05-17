@@ -6,7 +6,8 @@ public class Hotel {
     private String name;
     private int Img_id;
 
-    public static final Hotel [] hotel = {
+
+    public static final Hotel [] hotels = {
 
       new Hotel("Hilton Pyramids Golf",R.drawable.hilton_pyramids_golf),
       new Hotel("Makkah Hotel", R.drawable.makkah_hotel),
@@ -17,12 +18,17 @@ public class Hotel {
       new Hotel( "Sonesta Cairo Hotel", R.drawable.sonesta_cairo_hotel),
       new Hotel( "Sharm El Sheikh Marriott Resort",R.drawable.sharm_el_sheikh_marriott_resort)
     };
+    public  Hotel[] getHotels() {
+        return hotels;
+    }
 
 
     public Hotel(String name, int img_id) {
         this.name = name;
         Img_id = img_id;
     }
+    public Hotel(){}
+
 
     public String getName() {
         return name;

@@ -12,7 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CaptionedImagesAdapter
+public class   CaptionedImagesAdapter
         extends RecyclerView.Adapter<CaptionedImagesAdapter.ViewHolder> {
   //Can implement one array from hotel type
     private String [] captions;

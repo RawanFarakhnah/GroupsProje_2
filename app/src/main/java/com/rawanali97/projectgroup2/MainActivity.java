@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         //test comment
         RecyclerView recycler = (RecyclerView)findViewById(R.id.hottel_recycler);
-        String[] captions = new String[Hotel.hotel.length];
-        int[] ids = new int[Hotel.hotel.length];
+        String[] captions = new String[Hotel.hotels.length];
+        int[] ids = new int[Hotel.hotels.length];
 
         /*
         for(int i = 0; i<captions.length;i++){
