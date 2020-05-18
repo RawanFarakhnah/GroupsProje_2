@@ -29,9 +29,6 @@ public class MainActivity extends AppCompatActivity {
             saveData();
         }
 
-
-
-
         //test comment
         RecyclerView recycler = (RecyclerView)findViewById(R.id.hottel_recycler);
         String[] captions = new String[Hotel.hotels.length];

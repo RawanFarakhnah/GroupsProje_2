@@ -1,5 +1,6 @@
 package com.rawanali97.projectgroup2;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +45,7 @@ public class   CaptionedImagesAdapter
     }//to build card view
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         CardView cardView = holder.cardView;
         ImageView imageView = (ImageView) cardView.findViewById(R.id.image);
         Drawable dr = ContextCompat.getDrawable(cardView.getContext(), imagIds[position]);
@@ -57,8 +58,12 @@ public class   CaptionedImagesAdapter
         cardView.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //Intent intent =new intent ();
-            }
+                Intent intent = new Intent(v.getContext(),activityDetail.class);
+                int num = position;
+                intent.putExtra("item_id",(int)position);//sending position item in cardView
+                v.getContext().startActivity(intent);
+
+                }
         });
 
 

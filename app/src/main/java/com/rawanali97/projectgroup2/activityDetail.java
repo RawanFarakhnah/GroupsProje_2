@@ -1,10 +1,9 @@
 package com.rawanali97.projectgroup2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class activityDetail extends AppCompatActivity {
 
@@ -16,7 +15,7 @@ public class activityDetail extends AppCompatActivity {
 
         detailFragment frag =(detailFragment) getSupportFragmentManager().findFragmentById(R.id.frag_Id);
         Intent intent=getIntent();
-        int id= (int) intent.getExtras().get("ID");
+        int id= (int) intent.getExtras().get("item_id");
         frag.setId(id);
     }
 

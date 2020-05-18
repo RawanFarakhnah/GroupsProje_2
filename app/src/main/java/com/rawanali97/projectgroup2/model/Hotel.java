@@ -4,6 +4,7 @@ import com.rawanali97.projectgroup2.R;
 
 public class Hotel {
     private String name;
+    private String info;
     private int Img_id;
 
 
@@ -22,6 +23,13 @@ public class Hotel {
         return hotels;
     }
 
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
 
     public Hotel(String name, int img_id) {
         this.name = name;
